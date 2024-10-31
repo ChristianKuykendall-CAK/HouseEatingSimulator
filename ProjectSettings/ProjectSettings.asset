@@ -4,7 +4,11 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
+<<<<<<< HEAD
   productGUID: 5335fcca6e353ff4dbc216f68f9305b3
+=======
+  productGUID: 740a9327eb12fec4d9c2cf5d85b05a1d
+>>>>>>> origin/Jack's-branch
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,9 +17,15 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
+<<<<<<< HEAD
   productName: My project
   defaultCursor: {fileID: 2800000, guid: e7e80d39e3e102147a3be13caa7cd3d7, type: 3}
   cursorHotspot: {x: 256, y: 256}
+=======
+  productName: terrainpt4
+  defaultCursor: {fileID: 0}
+  cursorHotspot: {x: 0, y: 0}
+>>>>>>> origin/Jack's-branch
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 1
@@ -684,14 +694,22 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
+<<<<<<< HEAD
   metroPackageName: My project
+=======
+  metroPackageName: terrainpt4
+>>>>>>> origin/Jack's-branch
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
+<<<<<<< HEAD
   metroApplicationDescription: My project
+=======
+  metroApplicationDescription: terrainpt4
+>>>>>>> origin/Jack's-branch
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -761,11 +779,19 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
+<<<<<<< HEAD
   cloudProjectId: 98b2062e-6adf-423b-8f73-072243e965ff
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: My project 2024-09-23_19-23-29
   organizationId: gabrielheiser8803
+=======
+  cloudProjectId: 7f6a44dd-fe6c-4e7b-90b3-905600ca0dd2
+  framebufferDepthMemorylessMode: 0
+  qualitySettingsNames: []
+  projectName: terrainpt4 2024-09-25_19-32-30
+  organizationId: sarcasticlord
+>>>>>>> origin/Jack's-branch
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
