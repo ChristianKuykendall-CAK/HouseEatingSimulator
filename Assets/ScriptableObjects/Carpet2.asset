@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db11283e7cfc74a44bdd058204f51a6f, type: 3}
+  m_Name: Carpet2
+  m_EditorClassIdentifier: 
+  id: CP2
+  displayName: Carpet 2
+  mainPrefab: {fileID: 1082588924617073099, guid: 716f3160c0a340846a4c5e07c6425488, type: 3}
+  prefab2: {fileID: 0}
+  eatingSound: {fileID: 8300000, guid: e306b2b04c5d31949841e34990d71a86, type: 3}
