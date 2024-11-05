@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour {
     float attachedDistance = 1.5f;
     float rotationSpeed = 15f;
     bool isEating = false;
-    int eatCounter = 110;
+    int eatCounter = 600;
 
     private void Awake()
     {
@@ -34,19 +34,6 @@ public class PlayerController : MonoBehaviour {
 
     void Start() {
         Cursor.lockState = CursorLockMode.Locked;
-    }
-
-    private void FixedUpdate()
-    {
-        if (isEating == true)
-        {
-            eatCounter--;
-            attachedDistance -= .0125f;
-            if (eatCounter < 0)
-            {
-                EatItem();
-            }
-        }
     }
 
     void Update() {
@@ -101,8 +88,21 @@ public class PlayerController : MonoBehaviour {
             craftingManager.Craft(itemToCraft);
         }
 
+        if (isEating == true)
+        {
+            eatCounter--;
+            attachedDistance -= .0025f;
+            if (eatCounter < 0)
+            {
+                EatItem();
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.E)) {
             if (attachedObject != null && isEating == false) {
+
+                attachedObject.TryGetComponent(out ItemObject item);
+                audioSource.PlayOneShot(item.referenceItem.eatingSound, 1);
 
                 int totalItems = 0;
 
@@ -116,9 +116,6 @@ public class PlayerController : MonoBehaviour {
                     craftingManager.DropAllItems();
                     return;
                 }
-
-                attachedObject.TryGetComponent(out ItemObject item);
-                audioSource.PlayOneShot(item.referenceItem.eatingSound, 1);
 
                 isEating = true;
             }
@@ -178,7 +175,7 @@ public class PlayerController : MonoBehaviour {
         item.OnHandlePickupItem();
         isEating = false;
         attachedObject = null;
-        eatCounter = 110;
+        eatCounter = 600;
         attachedDistance = 1.5f;
     }
     
