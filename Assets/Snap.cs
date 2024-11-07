@@ -1,30 +1,55 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Snap : MonoBehaviour
 {
     private bool hasCollided = false; //to ensure the game object gets parented ONE TIME
-    public Vector3 offset = new Vector3(0, 1, 0);
+
+    public GameObject childObject; //reference to the child that will be snapped
     private void OnCollisionEnter(Collision collision)
     {
         if (!hasCollided)
         {
             if (collision.gameObject.CompareTag("Pickable"))
             {
-                //var newParent = new GameObject();
-                //newParent.layer = LayerMask.NameToLayer("Snapping"); //set parent to new layer as to not collide with floor
-                collision.transform.SetParent(transform); //set parent to the object
-
-                hasCollided = true;
-
-                if (transform.parent != null)
-                {
-                    //set child's position to the parent's position
-                    collision.gameObject.transform.position = transform.position + offset;
-                }
+                SnapObjectOnTop(collision.gameObject);
             }
         }
     }
 
+    private void SnapObjectOnTop(GameObject childObject)
+    {
+
+        //get the collider of this object
+        Collider parentCollider = GetComponent<Collider>();
+
+        if (parentCollider != null)
+        {
+            //get the collider of the child object
+            Collider childCollider = childObject.GetComponent<Collider>();
+
+            if (childCollider != null)
+            {
+                float parentTopY = parentCollider.bounds.max.y;     //get top of parent
+                float childHeight = childCollider.bounds.extents.y; //get half the height of child ?
+
+                //set the child object's position to be on top of the parent
+                Vector3 newPosition = new Vector3(transform.position.x, parentTopY + childHeight, transform.position.z);
+
+                //set the new position of the child object
+                childObject.transform.position = newPosition;
+
+            }
+            else
+            {
+                //DEBUG
+                Debug.LogError("Child object does not have a Collider");
+            }
+        }
+        else
+        {
+            Debug.LogError("Parent object does not have a Collider");
+        }
+    }
 }
