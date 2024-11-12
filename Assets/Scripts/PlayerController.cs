@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour {
     [Header("References")]
     public Rigidbody rb;
     public Transform Head;
+    public Collider Sucker;
     public Camera Camera;
     public AudioSource audioSource;
     public CraftingManager craftingManager;
@@ -96,6 +97,10 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Sucker.gameObject.SetActive(true);
+        }
 
         if (Input.GetKeyDown(KeyCode.R)) {
             craftingManager.Craft(itemToCraft);
