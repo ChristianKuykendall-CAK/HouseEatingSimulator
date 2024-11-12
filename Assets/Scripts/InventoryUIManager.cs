@@ -24,6 +24,15 @@ public class InventoryUIManager : MonoBehaviour
         textMesh.text = string.IsNullOrEmpty(itemNames) ? "Inv. Empty" : itemNames;
     }
 
+    //if raycasted item is a snapable item, print "E" to screen
+    public void UpdateSnapText(bool canSnap)
+    {
+        if (canSnap)
+        {
+            textMesh.text = "E";
+        }
+    }
+
     public void OnItemChanged()
     {
         UpdateInventoryText();

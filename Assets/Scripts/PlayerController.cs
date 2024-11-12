@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
@@ -9,13 +10,18 @@ public class PlayerController : MonoBehaviour {
     public AudioSource audioSource;
     public CraftingManager craftingManager;
     public InventoryItemData itemToCraft;
+    public InventoryUIManager inventoryUI;
+
 
     [Header("Configurations")]
     public static PlayerController instance;
     public float walkSpeed;
     public float runSpeed;
     public float jumpSpeed;
+    //TODO: decrease itemPickupDistance
     public float itemPickupDistance;
+    //for snapable objects
+    public Boolean canSnap;
 
     [Header("Runtime")]
     Vector3 newVelocity;
@@ -37,6 +43,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     void Update() {
+
 
         Cursor.visible = true;
 
@@ -62,6 +69,27 @@ public class PlayerController : MonoBehaviour {
         // Picking objects
         RaycastHit hit;
         bool cast = Physics.Raycast(Head.position, Head.forward, out hit, itemPickupDistance);
+
+        //if something is in the crosshair's sight
+        if (cast)
+        {
+            Debug.Log("Object Recognized");
+            //make sure the object is something you want to "snap" to 
+            if(hit.transform.CompareTag("Snap"))
+            {
+                Debug.Log("E");
+                canSnap = true;
+            }
+        }
+        else
+        {
+            Debug.Log("Not Recognized");
+            canSnap = false;
+        }
+
+        //TODO: call UpdateSnapText
+        inventoryUI.UpdateSnapText(canSnap);
+
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
