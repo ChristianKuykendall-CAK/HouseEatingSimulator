@@ -4,6 +4,7 @@ using TMPro;
 public class InventoryUIManager : MonoBehaviour
 {
     public TextMeshProUGUI textMesh;
+    public TextMeshProUGUI snapTextMesh;
     private InventorySystem inventorySystem;
 
     void Start()
@@ -29,7 +30,11 @@ public class InventoryUIManager : MonoBehaviour
     {
         if (canSnap)
         {
-            textMesh.text = "E";
+            snapTextMesh.text = "E";
+        }
+        else
+        {
+            snapTextMesh.text = " ";
         }
     }
 
