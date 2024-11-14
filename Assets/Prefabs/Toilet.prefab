@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: de5d179e7c40ced4ab0bdf0f5ab59604, type: 3}
       propertyPath: m_Name
-      value: Toilet (1)
+      value: Toilet
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: de5d179e7c40ced4ab0bdf0f5ab59604, type: 3}
       propertyPath: m_TagString
