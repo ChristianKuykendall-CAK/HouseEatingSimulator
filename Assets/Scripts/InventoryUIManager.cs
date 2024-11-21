@@ -5,12 +5,14 @@ public class InventoryUIManager : MonoBehaviour
 {
     public TextMeshProUGUI textMesh;
     public TextMeshProUGUI snapTextMesh;
+    public TextMeshProUGUI readTextMesh;
     private InventorySystem inventorySystem;
 
     void Start()
     {
         inventorySystem = InventorySystem.current;
         UpdateInventoryText();
+
     }
 
     void UpdateInventoryText()
@@ -35,6 +37,19 @@ public class InventoryUIManager : MonoBehaviour
         else
         {
             snapTextMesh.text = " ";
+        }
+    }
+
+    //if raycasted item is recipe book, print E
+    public void UpdateBookText(bool canRead)
+    {
+        if (canRead)
+        {
+            readTextMesh.text = "E";
+        }
+        else
+        {
+            readTextMesh.text = " ";
         }
     }
 

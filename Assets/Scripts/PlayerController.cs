@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour {
     public float walkSpeed;
     public float runSpeed;
     public float jumpSpeed;
-    //TODO: decrease itemPickupDistance
     public float itemPickupDistance;
     //for snapable objects
     public Boolean canSnap;
@@ -32,6 +31,8 @@ public class PlayerController : MonoBehaviour {
     float rotationSpeed = 15f;
     bool isEating = false;
     int eatCounter = 600;
+
+    bool DEBUG = false;
 
     private void Awake()
     {
@@ -73,17 +74,17 @@ public class PlayerController : MonoBehaviour {
         //if something is in the crosshair's sight
         if (cast)
         {
-            Debug.Log("Object Recognized");
+            if(DEBUG)Debug.Log("Object Recognized");
             //make sure the object is something you want to "snap" to 
             if(hit.transform.CompareTag("Snap"))
             {
-                Debug.Log("E");
+                if(DEBUG) Debug.Log("E");
                 canSnap = true;
             }
         }
         else
         {
-            Debug.Log("Not Recognized");
+            if(DEBUG)Debug.Log("Not Recognized");
             canSnap = false;
         }
 
