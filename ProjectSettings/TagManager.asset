@@ -5,15 +5,15 @@ TagManager:
   serializedVersion: 2
   tags:
   - Pickable
-  - Snap
+  - Sucker
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Ground
+  - 
   - Water
   - UI
-  - Snapping
+  - 
   - 
   - 
   - 
