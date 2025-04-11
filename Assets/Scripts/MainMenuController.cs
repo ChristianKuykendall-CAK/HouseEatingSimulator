@@ -5,15 +5,24 @@ using UnityEngine.UI;
 
 public class MainMenuController : MonoBehaviour
 {
+    public GameObject options;
+    public GameObject controls;
 
-    void Awake()
+    public Button playBtn;
+    public Button optionsBtn;
+    public Button controlsBtn;
+    public Button exitBtn;
+
+    void Start()
     {
-        Button playButton = GetComponent("PlayButton") as Button;
-        Button optionsButton = GetComponent("OptionsButton") as Button;
-        Button exitButton = GetComponent("ExitButton") as Button;
-
-        GameObject optionsMenu = GameObject.Find("Options");
-        Button backButton = GetComponent("BackButton") as Button;
+        options.SetActive(false);
+        controls.SetActive(false);
     }
+
+    void Update()
+    {
+        
+    }
+
 
 }
