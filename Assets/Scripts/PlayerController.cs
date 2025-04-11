@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour {
     float attachedDistance = 1.5f;
     float rotationSpeed = 15f;
     bool isEating = false;
-    int eatCounter = 600;
+    int eatCounter = 110;
 
     private void Awake()
     {
@@ -35,6 +35,19 @@ public class PlayerController : MonoBehaviour {
 
     void Start() {
         Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    private void FixedUpdate()
+    {
+        if (isEating == true)
+        {
+            eatCounter--;
+            attachedDistance -= .0125f;
+            if (eatCounter < 0)
+            {
+                EatItem();
+            }
+        }
     }
 
     void Update() {
@@ -84,46 +97,12 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            Sucker.gameObject.SetActive(true);
-        }
-
         if (Input.GetKeyDown(KeyCode.R)) {
+            Debug.Log("trying to craft");
             craftingManager.Craft(itemToCraft);
         }
 
-        if (isEating == true)
-        {
-            eatCounter--;
-            attachedDistance -= .0025f;
-            if (eatCounter < 0)
-            {
-                EatItem();
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.E)) {
-            if (attachedObject != null && isEating == false) {
-
-                attachedObject.TryGetComponent(out ItemObject item);
-                audioSource.PlayOneShot(item.referenceItem.eatingSound, 1);
-
-                int totalItems = 0;
-
-                foreach (var heldItem in InventorySystem.current.Inventory)
-                {
-                    totalItems += heldItem.StackSize;
-                }
-
-                if (totalItems > 4)
-                {
-                    craftingManager.DropAllItems();
-                    return;
-                }
-
-                isEating = true;
-            }
+        if (Input.GetButtonDown("Fire1")) {
             if (attachedObject == null) {
                 if (cast) {
                     if (hit.transform.CompareTag("Pickable")) {
@@ -138,6 +117,29 @@ public class PlayerController : MonoBehaviour {
                         
                     }
                 }
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.E)) {
+            if (attachedObject != null && isEating == false) {
+
+                int totalItems = 0;
+
+                foreach (var heldItem in InventorySystem.current.Inventory)
+                {
+                    totalItems += heldItem.StackSize;
+                }
+
+                if (totalItems > 4)
+                {
+                    craftingManager.DropAllItems();
+                    return;
+                }
+
+                attachedObject.TryGetComponent(out ItemObject item);
+                audioSource.PlayOneShot(item.referenceItem.eatingSound, 1);
+
+                isEating = true;
             }
         }
     }
@@ -174,13 +176,18 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    public void SUCKTIME()
+    {
+        Sucker.gameObject.SetActive(true);
+    }
+
     public void EatItem()
     {
         attachedObject.TryGetComponent(out ItemObject item);
         item.OnHandlePickupItem();
         isEating = false;
         attachedObject = null;
-        eatCounter = 600;
+        eatCounter = 110;
         attachedDistance = 1.5f;
     }
     

@@ -16,4 +16,4 @@ MonoBehaviour:
   displayName: Toaster
   mainPrefab: {fileID: 6186099519577638080, guid: dad20f68d067a764fb0e0898ee94876c, type: 3}
   prefab2: {fileID: 0}
-  eatingSound: {fileID: 0}
+  eatingSound: {fileID: 8300000, guid: 99df14b79175e5a4f80e01eacfa6f46f, type: 3}

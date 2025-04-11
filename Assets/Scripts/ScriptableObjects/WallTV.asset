@@ -16,4 +16,4 @@ MonoBehaviour:
   displayName: Wall TV
   mainPrefab: {fileID: 8538517025790798524, guid: acafad2aebc8d6e4abfd833d870bd670, type: 3}
   prefab2: {fileID: 0}
-  eatingSound: {fileID: 0}
+  eatingSound: {fileID: 8300000, guid: bfc9e6b08f8bf714ab5646a44a6849de, type: 3}

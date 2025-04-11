@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db11283e7cfc74a44bdd058204f51a6f, type: 3}
+  m_Name: Plywood
+  m_EditorClassIdentifier: 
+  id: PW
+  displayName: Plywood
+  mainPrefab: {fileID: 5600656128897283131, guid: 7bd5c40aa4f1f564e94574a1b6e05b8b, type: 3}
+  prefab2: {fileID: 0}
+  eatingSound: {fileID: 8300000, guid: 4789909d183947541847d03a8c49d38a, type: 3}
