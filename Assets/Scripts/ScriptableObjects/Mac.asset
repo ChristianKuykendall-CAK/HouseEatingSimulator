@@ -16,4 +16,4 @@ MonoBehaviour:
   displayName: Mac
   mainPrefab: {fileID: 748584719930783734, guid: 0ae3b827d2766eb4ebbcf4eb6ecb389c, type: 3}
   prefab2: {fileID: 0}
-  eatingSound: {fileID: 0}
+  eatingSound: {fileID: 8300000, guid: bfc9e6b08f8bf714ab5646a44a6849de, type: 3}

@@ -3,15 +3,17 @@ using UnityEngine;
 public class PlaceHolderController : MonoBehaviour
 {
     public GameObject placedObject;
-    public InventoryItem requiredItem;
+    public InventoryItemData requiredItem;
 
     private void OnMouseOver()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-
-            Instantiate(placedObject, gameObject.transform.position, gameObject.transform.rotation);
-            Destroy(gameObject);
+            if (InventorySystem.current.m_itemDictionary.TryGetValue(requiredItem, out InventoryItem value)){
+                Instantiate(placedObject, gameObject.transform.position, gameObject.transform.rotation);
+                InventorySystem.current.Remove(value.Data);
+                Destroy(gameObject);
+            }
         }
     }
 }

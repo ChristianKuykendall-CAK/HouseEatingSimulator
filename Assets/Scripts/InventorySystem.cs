@@ -1,11 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class InventorySystem : MonoBehaviour
 {
     // Create a dictionary to store the inventory item data as the key and inventory item as the value.
-    private Dictionary<InventoryItemData, InventoryItem> m_itemDictionary;
+    public Dictionary<InventoryItemData, InventoryItem> m_itemDictionary;
 
     [SerializeField]
     private List<InventoryItem> inventory = new List<InventoryItem>();
@@ -97,6 +96,10 @@ public class InventoryItem
     public InventoryItem(InventoryItemData source)
     {
         data = source;
+        if (data.displayName == "FORK")
+        {
+            PlayerController.instance.SUCKTIME();
+        }
         AddToStack();
     }
 
