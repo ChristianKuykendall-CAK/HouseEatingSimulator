@@ -5,7 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Pickable
+<<<<<<< HEAD
   - Sucker
+=======
+  - Snap
+  - Book
+>>>>>>> origin/Vin's-branch
   layers:
   - Default
   - TransparentFX
