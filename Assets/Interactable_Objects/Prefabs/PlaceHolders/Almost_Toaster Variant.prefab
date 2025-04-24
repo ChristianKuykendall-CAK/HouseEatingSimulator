@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8391090212565695730
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5681727216716375317, guid: dad20f68d067a764fb0e0898ee94876c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9389df8a2e7a07a4e88234581fb0231c, type: 2}
+    - target: {fileID: 5681727216716375317, guid: dad20f68d067a764fb0e0898ee94876c, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9389df8a2e7a07a4e88234581fb0231c, type: 2}
+    - target: {fileID: 6186099519577638080, guid: dad20f68d067a764fb0e0898ee94876c, type: 3}
+      propertyPath: m_Name
+      value: Almost_Toaster Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186099519577638080, guid: dad20f68d067a764fb0e0898ee94876c, type: 3}
+      propertyPath: m_TagString
+      value: PlaceHolder
+      objectReference: {fileID: 0}
+    - target: {fileID: 6814685177870261882, guid: dad20f68d067a764fb0e0898ee94876c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.04601
+      objectReference: {fileID: 0}
+    - target: {fileID: 6814685177870261882, guid: dad20f68d067a764fb0e0898ee94876c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6814685177870261882, guid: dad20f68d067a764fb0e0898ee94876c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.878
+      objectReference: {fileID: 0}
+    - target: {fileID: 6814685177870261882, guid: dad20f68d067a764fb0e0898ee94876c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 6814685177870261882, guid: dad20f68d067a764fb0e0898ee94876c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6814685177870261882, guid: dad20f68d067a764fb0e0898ee94876c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6814685177870261882, guid: dad20f68d067a764fb0e0898ee94876c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6814685177870261882, guid: dad20f68d067a764fb0e0898ee94876c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6814685177870261882, guid: dad20f68d067a764fb0e0898ee94876c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6814685177870261882, guid: dad20f68d067a764fb0e0898ee94876c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5820243553030308662, guid: dad20f68d067a764fb0e0898ee94876c, type: 3}
+    - {fileID: 7126907300133073195, guid: dad20f68d067a764fb0e0898ee94876c, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6186099519577638080, guid: dad20f68d067a764fb0e0898ee94876c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5695131427096287052}
+  m_SourcePrefab: {fileID: 100100000, guid: dad20f68d067a764fb0e0898ee94876c, type: 3}
+--- !u!1 &2425844446997248050 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6186099519577638080, guid: dad20f68d067a764fb0e0898ee94876c, type: 3}
+  m_PrefabInstance: {fileID: 8391090212565695730}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5695131427096287052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2425844446997248050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 544bae7d04835fc4aa9759cbe6cac6d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placedObject: {fileID: 3610931751512689402, guid: 3a0cba73dad95a74c9a61220589bae71, type: 3}
+  requiredItem: {fileID: 11400000, guid: 9368ee3bbe9cced498eb4ea3af64d9b5, type: 2}

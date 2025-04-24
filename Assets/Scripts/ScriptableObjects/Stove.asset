@@ -16,4 +16,4 @@ MonoBehaviour:
   displayName: Stove
   mainPrefab: {fileID: 6145179637994316439, guid: 8706c03dac227704c88b6923000d54ae, type: 3}
   prefab2: {fileID: 0}
-  eatingSound: {fileID: 0}
+  eatingSound: {fileID: 8300000, guid: 99df14b79175e5a4f80e01eacfa6f46f, type: 3}

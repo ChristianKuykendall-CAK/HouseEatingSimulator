@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
@@ -10,6 +11,8 @@ public class PlayerController : MonoBehaviour {
     public AudioSource audioSource;
     public CraftingManager craftingManager;
     public InventoryItemData itemToCraft;
+    public InventoryUIManager inventoryUI;
+
 
     [Header("Configurations")]
     public static PlayerController instance;
@@ -17,6 +20,8 @@ public class PlayerController : MonoBehaviour {
     public float runSpeed;
     public float jumpSpeed;
     public float itemPickupDistance;
+    //for snapable objects
+    public Boolean canSnap;
 
     [Header("Runtime")]
     Vector3 newVelocity;
@@ -26,7 +31,9 @@ public class PlayerController : MonoBehaviour {
     float attachedDistance = 1.5f;
     float rotationSpeed = 15f;
     bool isEating = false;
-    int eatCounter = 600;
+    int eatCounter = 110;
+
+    bool DEBUG = false;
 
     private void Awake()
     {
@@ -37,7 +44,21 @@ public class PlayerController : MonoBehaviour {
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+    private void FixedUpdate()
+    {
+        if (isEating == true)
+        {
+            eatCounter--;
+            attachedDistance -= .0125f;
+            if (eatCounter < 0)
+            {
+                EatItem();
+            }
+        }
+    }
+
     void Update() {
+
 
         Cursor.visible = true;
 
@@ -64,6 +85,27 @@ public class PlayerController : MonoBehaviour {
         RaycastHit hit;
         bool cast = Physics.Raycast(Head.position, Head.forward, out hit, itemPickupDistance);
 
+        //if something is in the crosshair's sight
+        if (cast)
+        {
+            if(DEBUG)Debug.Log("Object Recognized");
+            //make sure the object is something you want to "snap" to 
+            if(hit.transform.CompareTag("Snap"))
+            {
+                if(DEBUG) Debug.Log("E");
+                canSnap = true;
+            }
+        }
+        else
+        {
+            if(DEBUG)Debug.Log("Not Recognized");
+            canSnap = false;
+        }
+
+        //TODO: call UpdateSnapText
+        inventoryUI.UpdateSnapText(canSnap);
+
+
         if (Input.GetKeyDown(KeyCode.Q))
         {
             if (attachedObject != null)
@@ -84,46 +126,12 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            Sucker.gameObject.SetActive(true);
-        }
-
         if (Input.GetKeyDown(KeyCode.R)) {
+            Debug.Log("trying to craft");
             craftingManager.Craft(itemToCraft);
         }
 
-        if (isEating == true)
-        {
-            eatCounter--;
-            attachedDistance -= .0025f;
-            if (eatCounter < 0)
-            {
-                EatItem();
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.E)) {
-            if (attachedObject != null && isEating == false) {
-
-                attachedObject.TryGetComponent(out ItemObject item);
-                audioSource.PlayOneShot(item.referenceItem.eatingSound, 1);
-
-                int totalItems = 0;
-
-                foreach (var heldItem in InventorySystem.current.Inventory)
-                {
-                    totalItems += heldItem.StackSize;
-                }
-
-                if (totalItems > 4)
-                {
-                    craftingManager.DropAllItems();
-                    return;
-                }
-
-                isEating = true;
-            }
+        if (Input.GetButtonDown("Fire1")) {
             if (attachedObject == null) {
                 if (cast) {
                     if (hit.transform.CompareTag("Pickable")) {
@@ -138,6 +146,29 @@ public class PlayerController : MonoBehaviour {
                         
                     }
                 }
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.E)) {
+            if (attachedObject != null && isEating == false) {
+
+                int totalItems = 0;
+
+                foreach (var heldItem in InventorySystem.current.Inventory)
+                {
+                    totalItems += heldItem.StackSize;
+                }
+
+                if (totalItems > 4)
+                {
+                    craftingManager.DropAllItems();
+                    return;
+                }
+
+                attachedObject.TryGetComponent(out ItemObject item);
+                audioSource.PlayOneShot(item.referenceItem.eatingSound, 1);
+
+                isEating = true;
             }
         }
     }
@@ -174,13 +205,18 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    public void SUCKTIME()
+    {
+        Sucker.gameObject.SetActive(true);
+    }
+
     public void EatItem()
     {
         attachedObject.TryGetComponent(out ItemObject item);
         item.OnHandlePickupItem();
         isEating = false;
         attachedObject = null;
-        eatCounter = 600;
+        eatCounter = 110;
         attachedDistance = 1.5f;
     }
     
