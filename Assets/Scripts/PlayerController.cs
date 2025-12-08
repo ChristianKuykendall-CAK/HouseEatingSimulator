@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
         // Horizontal Rotation
         transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * 2f);
 
-        newVelocity = Vector3.up * rb.velocity.y;
+        newVelocity = Vector3.up * rb.linearVelocity.y;
         float speed = Input.GetKey(KeyCode.LeftShift) ? runSpeed : walkSpeed;
         newVelocity.x = Input.GetAxis("Horizontal") * speed;
         newVelocity.z = Input.GetAxis("Vertical") * speed;
@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
                 isJumping = true;
             }
         }
-        rb.velocity = transform.TransformDirection(newVelocity);
+        rb.linearVelocity = transform.TransformDirection(newVelocity);
 
         // Picking objects
         RaycastHit hit;
