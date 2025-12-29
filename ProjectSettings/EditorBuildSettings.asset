@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Start_Menu.unity
     guid: 545659ac195440046b64d7e9812a4f0b
   - enabled: 1
-    path: Assets/Scenes/LevelAfterDream.unity
+    path: Assets/Scenes/HousesAD
     guid: d2809ab9b90eea7419d8d90d4c505d35
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
